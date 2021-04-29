@@ -2,7 +2,7 @@ module.exports = {
     devServer: {
         proxy: {
             '/api': {
-                target: 'http://localhost:5555',
+                target: 'http://web.juhe.cn:8080/',
                 changeOrigin: true,
                 ws: true,
                 secure: false,
@@ -11,7 +11,7 @@ module.exports = {
                 }
             }
         },
-        // 是否开启eslint
+        // // 是否开启eslint
         // overlay: {
         //     warnings: false,
         //     errors: false,

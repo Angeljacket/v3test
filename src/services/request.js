@@ -3,7 +3,7 @@ import { axiosGet } from "../libs/http";
 function getData(consName, type) {
     return new Promise((resolve, reject) => {
         axiosGet({
-            url: `/api?consName=${consName}&type=${type}`,
+            url: `/api/constellation/getAll?consName=${consName}&type=${type}`,
             success (data) {
                 resolve(data);
             },
