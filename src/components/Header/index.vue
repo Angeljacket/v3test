@@ -26,6 +26,7 @@ export default {
   background-color: #DB7093;
   color: #ffffff;
   font-size: .18rem;
+  z-index: 1;
   img {
     width: .23rem;
   }

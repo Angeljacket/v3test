@@ -1,9 +1,11 @@
 <template>
   <div
     class="nav-bar"
-    v-nav-current="
-      ({ className: 'nav-item', activeClass: 'nav-current', curIdx })
-    "
+    v-nav-current="{
+      className: 'nav-item',
+      activeClass: 'nav-current',
+      curIdx,
+    }"
     @click="navClick($event)"
   >
     <div class="scroll-wrapper">
@@ -24,7 +26,10 @@
 import navData from '@/datas/nav';
 import navItem from './Item';
 import { ref } from 'vue';
+import { useStore } from 'vuex';
 import { navCurrent } from '@/directives';
+import getData from '@/services';
+
 export default {
   name: 'NavBar',
   components: {
@@ -34,10 +39,19 @@ export default {
     navCurrent,
   },
   setup() {
-    const curIdx = ref(0);
+    const curIdx = ref(0),
+      store = useStore();
     const navClick = e => {
-        console.log(e);
-        // const idx = e.target.dataset
+      const className = e.target.className;
+      if (className === 'nav-item') {
+        const tar = e.target,
+          idx = tar.dataset.index,
+          consName = tar.innerText;
+
+        curIdx.value = idx;
+        store.commit('setConsName', consName);
+        getData(store);
+      }
     };
     return {
       navData,
