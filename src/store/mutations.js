@@ -5,8 +5,8 @@ export default {
     setField(state, field) {
         state.type = field
     },
-    setErrorCode(state, errcode) {
-        state.errcode = errcode
+    setErrorCode(state, errorCode) {
+        state.errorCode = errorCode
     },
     setData(state, data) {
         state[state.type] = data;
