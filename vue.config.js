@@ -1,13 +1,13 @@
 module.exports = {
     devServer: {
         proxy: {
-            '/api': {
+            '/constellation': {
                 target: 'http://web.juhe.cn:8080/',
                 changeOrigin: true,
                 ws: true,
                 secure: false,
                 pathRewrite: {
-                    '^/api': ''
+                    '^/constellation': ''
                 }
             }
         },
@@ -17,5 +17,6 @@ module.exports = {
         //     errors: false,
         // }
     },
+    publicPath: '/constellation/',
     lintOnSave: false
 };
