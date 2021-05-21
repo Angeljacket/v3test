@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img src="../../assets/img/cons.png" />
+    <img src="../../assets/img/cons.png" @click="handleClick"/>
     <h1>
       <slot>星座物语</slot>
     </h1>
@@ -10,6 +10,15 @@
 <script>
 export default {
   name: 'myHeader',
+    setup() {
+      const handleClick = () => {
+          localStorage.clear();
+          window.location.reload();
+      };
+      return {
+          handleClick,
+      }
+    },
 };
 </script>
 
